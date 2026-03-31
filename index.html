@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangzhi Yang | 杨邦治</title>
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --text: #222;
+      --muted: #666;
+      --accent: #2c5ea8;
+      --accent-light: #e8f0fb;
+      --border: #e0e0e0;
+      --card: #fff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 56px;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2c5ea8, #4a90e2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      letter-spacing: -1px;
+    }
+
+    .header-info h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .header-info .subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .header-info .affiliation {
+      font-size: 15px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      color: var(--muted);
+      padding: 4px 0;
+    }
+
+    .links a:hover { color: var(--accent); }
+
+    /* Sections */
+    section {
+      margin-bottom: 48px;
+    }
+
+    section h2 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .bio {
+      font-size: 15.5px;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* Education */
+    .edu-item, .exp-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+    }
+
+    .edu-item h3, .exp-item h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 2px;
+    }
+
+    .edu-item .meta, .exp-item .meta {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .edu-item .detail, .exp-item .detail {
+      font-size: 13.5px;
+      color: #555;
+    }
+
+    /* Research Interests */
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    /* Publications */
+    .pub-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+    }
+
+    .pub-item .pub-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .pub-item .pub-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .pub-item .pub-badge {
+      display: inline-block;
+      background: #d4edda;
+      color: #155724;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 9px;
+      border-radius: 10px;
+      margin-right: 6px;
+    }
+
+    .pub-item .pub-badge.review {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .pub-item .pub-links a {
+      font-size: 13px;
+      margin-right: 12px;
+    }
+
+    /* Skills */
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 560px) {
+      header { flex-direction: column; gap: 18px; }
+      .container { padding: 48px 18px 80px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <div class="avatar">杨</div>
+      <div class="header-info">
+        <h1>Bangzhi Yang &nbsp;/&nbsp; 杨邦治</h1>
+        <p class="subtitle">Undergraduate Researcher</p>
+        <p class="affiliation">Guangdong University of Technology (GDUT) &nbsp;·&nbsp; Guangzhou, China</p>
+        <div class="links">
+          <a href="mailto:yangbzorz@gmail.com">📧 yangbzorz@gmail.com</a>
+          <a href="https://github.com/peckerclaw">💻 GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Bio -->
+    <section>
+      <h2>About</h2>
+      <p class="bio">
+        I am a third-year undergraduate student at the
+        <a href="https://www.gdut.edu.cn/">Guangdong University of Technology</a>,
+        majoring in Artificial Intelligence. My research interests lie at the intersection of
+        <strong>Social Computing</strong> and <strong>Systems Engineering</strong>,
+        with a particular focus on applications in <strong>Healthcare + AI</strong>.
+        I am actively seeking research opportunities for graduate studies.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2>Education</h2>
+      <div class="edu-item">
+        <h3>Guangdong University of Technology (GDUT)</h3>
+        <p class="meta">B.Eng. in Artificial Intelligence &nbsp;·&nbsp; Grade 3 (Junior)</p>
+        <p class="detail">Guangzhou, China &nbsp;·&nbsp; Expected 2027</p>
+      </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section>
+      <h2>Research Interests</h2>
+      <div class="interests">
+        <span class="tag">🤝 Social Computing</span>
+        <span class="tag">⚙️ Systems Engineering</span>
+        <span class="tag">🏥 Healthcare + AI</span>
+        <span class="tag">🤖 Artificial Intelligence</span>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section>
+      <h2>Publications</h2>
+
+      <div class="pub-item">
+        <p class="pub-title">Improving Identity Preservation in Video Generation with Multi-Branch Models</p>
+        <p class="pub-meta">
+          <strong>Bangzhi Yang</strong>, Ting Yao, Zhenguo Yang
+          &nbsp;·&nbsp; IEEE Transactions on Computational Social Systems (TCSS)
+        </p>
+        <p class="pub-meta">
+          <span class="pub-badge">First Author</span>
+          <span class="pub-badge review">Accept</span>
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-title">Multi-Perspective Frequency Domain Learning for Generalizable AI-Generated Image Detection</p>
+        <p class="pub-meta">
+          Zili Xu, <strong>Bangzhi Yang</strong>, Fuqiang Yu, Zhenguo Yang
+          &nbsp;·&nbsp; IEEE International Conference on Systems, Man, and Cybernetics (SMC)
+        </p>
+        <p class="pub-meta">
+          <span class="pub-badge">Co-Author</span>
+          <span class="pub-badge review">Under Review</span>
+        </p>
+      </div>
+
+      <div class="pub-item">
+        <p class="pub-title">Exploring Vision-Language Foundation Model for Novel Object Captioning</p>
+        <p class="pub-meta">
+          Bangzhi Yang, Yehao Li, Yingwei Pan, Ting Yao, Jianlin Feng, Hongyang Chao, Tao Mei
+          &nbsp;·&nbsp; IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)
+        </p>
+        <p class="pub-meta">
+          <span class="pub-badge">Co-Author</span>
+          <span class="pub-badge review">Under Review</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2>Skills</h2>
+      <div class="skill-list">
+        <span class="skill-item">🐍 Python</span>
+        <span class="skill-item">🧠 Machine Learning</span>
+        <span class="skill-item">🔬 Scientific Research</span>
+        <span class="skill-item">📊 Data Analysis</span>
+      </div>
+    </section>
+
+    <footer>
+      <p>Last updated: March 2026 &nbsp;·&nbsp; Built with ❤️</p>
+    </footer>
+
+  </div>
+</body>
+</html>
